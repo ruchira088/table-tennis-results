@@ -6,6 +6,8 @@ services:
     build: ./table-tennis-team-service
     ports:
       - 8000:8000
+    volumes:
+      - "./table-tennis-team-service/:/opt/table-tennis-team-service/"
     environment:
       DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
 
