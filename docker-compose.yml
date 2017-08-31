@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+
+  team-service:
+    build: ./team-service
+    ports:
+      - 8000:8000
+    environment:
+      DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/team_service"
+
+  mysql-database:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "team_service"
