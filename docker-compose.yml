@@ -3,7 +3,7 @@ version: "2"
 services:
 
   team-service:
-    build: ./team-service
+    build: ./table-tennis-team-service
     ports:
       - 8000:8000
     environment:
