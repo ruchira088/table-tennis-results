@@ -7,7 +7,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/team_service"
+      DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
 
   mysql-database:
     image: mysql
@@ -15,4 +15,4 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: "password"
-      MYSQL_DATABASE: "team_service"
+      MYSQL_DATABASE: "table_tennis"
