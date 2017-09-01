@@ -5,7 +5,7 @@ services:
   team-service:
     build: ./table-tennis-team-service
     ports:
-      - 8000:8000
+      - 9000:9000
     volumes:
       - "./table-tennis-team-service/:/opt/table-tennis-team-service/"
     environment:
