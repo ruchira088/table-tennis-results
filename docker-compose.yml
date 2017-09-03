@@ -5,11 +5,31 @@ services:
   team-service:
     build: ./table-tennis-team-service
     ports:
-      - 9000:9000
+      - 9001:9000
+      - 5006:5005
     volumes:
-      - "./table-tennis-team-service/:/opt/table-tennis-team-service/"
+      - "./table-tennis-team-service:/opt/table-tennis-team-service"
+      - "~/.ivy2:/root/.ivy2"
     environment:
       DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
+
+  results-service:
+    build: ./table-tennis-results-service
+    ports:
+      - 9000:9000
+      - 5005:5005
+    volumes:
+      - "./table-tennis-results-service:/opt/table-tennis-results-service"
+      - "~/.ivy2:/root/.ivy2"
+    environment:
+      TEAM_SERVICE_URL: "http://team-service:9000"
+
+  web-app:
+    build: ./table-tennis-web
+    ports:
+      - 8000:8000
+    volumes:
+      - "./table-tennis-web/app:/opt/table-tennis-web/app"
 
   mysql-database:
     image: mysql
