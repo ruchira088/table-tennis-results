@@ -11,7 +11,8 @@ services:
       - "./table-tennis-team-service:/opt/table-tennis-team-service"
       - "~/.ivy2:/root/.ivy2"
     environment:
-      DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
+      # DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
+      DATABASE_URL: "jdbc:postgresql://postgres-database:5432/table_tennis?user=postgres_user&password=password"
 
   results-service:
     build: ./table-tennis-results-service
@@ -30,6 +31,15 @@ services:
       - 8000:8000
     volumes:
       - "./table-tennis-web/app:/opt/table-tennis-web/app"
+
+  postgres-database:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_USER: "postgres_user"
+      POSTGRES_DB: "table_tennis"
 
   mysql-database:
     image: mysql
