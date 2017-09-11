@@ -9,7 +9,7 @@ services:
       - 5006:5005
     volumes:
       - "./table-tennis-team-service:/opt/table-tennis-team-service"
-      - "~/.ivy2:/root/.ivy2"
+      - "~/.ivy2/cache:/root/.ivy2/cache"
       - "~/.sbt:/root/.sbt"
     environment:
       # DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
@@ -22,7 +22,7 @@ services:
       - 5005:5005
     volumes:
       - "./table-tennis-results-service:/opt/table-tennis-results-service"
-      - "~/.ivy2:/root/.ivy2"
+      - "~/.ivy2/cache:/root/.ivy2/cache"
       - "~/.sbt:/root/.sbt"
     environment:
       TEAM_SERVICE_URL: "http://team-service:9000"
