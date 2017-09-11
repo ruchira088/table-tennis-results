@@ -10,6 +10,7 @@ services:
     volumes:
       - "./table-tennis-team-service:/opt/table-tennis-team-service"
       - "~/.ivy2:/root/.ivy2"
+      - "~/.sbt:/root/.sbt"
     environment:
       # DATABASE_URL: "jdbc:mysql://root:password@mysql-database:3306/table_tennis"
       DATABASE_URL: "jdbc:postgresql://postgres-database:5432/table_tennis?user=postgres_user&password=password"
@@ -22,6 +23,7 @@ services:
     volumes:
       - "./table-tennis-results-service:/opt/table-tennis-results-service"
       - "~/.ivy2:/root/.ivy2"
+      - "~/.sbt:/root/.sbt"
     environment:
       TEAM_SERVICE_URL: "http://team-service:9000"
 
